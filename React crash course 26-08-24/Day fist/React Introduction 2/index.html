@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+   function App(){
+    return(
+        <><div class="main">
+            <img src="./watch_image.jpeg"/>
+            <h1 class="hedding">Automatic watch</h1>
+            <p class="price">$350.00.USA</p>
+            <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad voluptates quia necessitatibus animi? Libero, commodi repellendus! Ea saepe blanditiis impedit doloribus vel laboriosam nemo perspiciatis nulla mollitia omnis. Tenetur.</p>
+            <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad voluptates quia necessitatibus animi? Libero, commodi repellendus! Ea saepe blanditiis impedit doloribus vel laboriosam nemo perspiciatis nulla mollitia omnis. Tenetur.</p>
+            <hr></hr>
+            <h2>FEATURES</h2>
+        
+            <div class="features">
+                <div class="left">
+                    <p>Chronograph</p>
+                    <p>Master Chronometer Certified</p>
+                    <p>Tachymeter</p>
+                    </div>
+                <div class="right">
+                    <p>Anti-Magnetic</p>
+                    <p>Chronometer</p>
+                    <p>small seconds</p></div>
+                
+                </div>
+                <hr></hr>
+                <h2>Product Details</h2>
+                <p><span>between lugs:</span>20 mm</p>
+                <p><span>Bracelet:</span>leather strap</p>
+                <p><span>Case:</span> Steel</p>
+                <p><span>Case diameter:</span>42 mm</p>
+                <p><span>Dial color:</span>Black</p>
+                <p><span>Crystal:</span>Domed ,scratch resistant,sapphire ,with anti_reflective teammate</p>
+                <p><span>Water resistant:</span> 5 bar (50 meter/167)</p>
+
+                <div class="cart"><p>Add To cart</p></div>
+
+                
+            
+            
+            
+            </div>
+        
+        </>
+    )
+   }
+
+    // this is render process
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App/>)
+    
+  </script>
+</html>

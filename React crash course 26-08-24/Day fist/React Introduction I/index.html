@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function App(){
+        const imgStyle = {
+    width: '150px',
+    height: '200px',
+    borderRadius: '10px',
+  };
+        return(
+            <>
+            <div style={{margin:"auto",border:"1px solid red",width:"80%",height:"auto",textAlign:"center"
+
+            }}>
+                <img  src="./image.png" alt="Flowers in Chania" style={imgStyle}/>
+                <h1> SUBSCRIBE</h1>
+                <p style={{fontSize:"25px",fontWeight:"bolder"}}> Subscribe the our Newsletter & stay up to date </p>
+                <div style={{width:"70%",height:"100px",margin:"auto",display:"flex",gap:"25px",justifyContent:"center"}}>
+                    <input type="email" placeHolder="manish@9919" style={{width:"60%",height:"50%",borderRadius:"20px",paddingLeft:"20px",fontSize:"20px" ,backgroundColor:"#edf2f6",border:"none"}}/>
+                    <button style={{width:"30%px",height:"50%",borderRadius:"20px",paddingLeft:"10px",fontSize:"20px",backgroundColor:"#4399e1",border:"none"}}>Subscribe</button>
+
+                 </div>
+                </div>
+            
+            
+            </>
+        )
+    }
+    
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App/>)
+    
+  </script>
+</html>
