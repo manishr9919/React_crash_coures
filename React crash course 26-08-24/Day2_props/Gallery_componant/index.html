@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Component</title>
+    <style>
+      #gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 10px;
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+      }
+
+      #gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+      const Gallery = ({ children }) => {
+        return (
+          <div id="gallery">
+            {children}
+          </div>
+        );
+      };
+
+      const App = () => {
+        return (
+          <Gallery>
+            <img src="https://via.placeholder.com/300?text=Ramadan+1" alt="Ramadan Image 1" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+2" alt="Ramadan Image 2" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+3" alt="Ramadan Image 3" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+4" alt="Ramadan Image 4" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+5" alt="Ramadan Image 5" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+6" alt="Ramadan Image 6" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+7" alt="Ramadan Image 7" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+8" alt="Ramadan Image 8" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+9" alt="Ramadan Image 9" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+10" alt="Ramadan Image 10" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+11" alt="Ramadan Image 11" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+12" alt="Ramadan Image 12" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+13" alt="Ramadan Image 13" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+14" alt="Ramadan Image 14" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+15" alt="Ramadan Image 15" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+16" alt="Ramadan Image 16" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+17" alt="Ramadan Image 17" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+18" alt="Ramadan Image 18" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+19" alt="Ramadan Image 19" />
+            <img src="https://via.placeholder.com/300?text=Ramadan+20" alt="Ramadan Image 20" />
+          </Gallery>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+
+    </script>
+  </body>
+</html>
