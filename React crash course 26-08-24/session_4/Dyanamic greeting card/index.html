@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+        #container{
+            border: 2px solid red;
+            display: flex;
+            justify-content: space-around;
+        }
+        #container>div{
+            border: 2px solid green;
+            padding: 0px 10px;
+            background-color: black;
+            color: white;
+            margin-top: 10px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const GreetingCard = ({ greeting }) => {
+      return (
+        <>
+          <div id="container">
+            {greeting.map((ele, i) => {
+              return (
+                <div key={i}>
+                  <p>{ele.greeting}</p>
+                  <p>{ele.name}</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      );
+    };
+
+    const App = () => {
+        const [greeting,setGreeting]= React.useState([
+        { greeting: "Happy Birthday", name: "John Doe" },
+        { greeting: "Happy Birthday", name: "John Doe" },
+        { greeting: "Happy Birthday", name: "John Doe" },
+        { greeting: "Happy Birthday", name: "John Doe" },
+      ])
+      
+      return (
+        <>
+          <GreetingCard greeting={greeting} />
+        </>
+      );
+    };
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</html>
