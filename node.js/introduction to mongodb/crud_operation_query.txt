@@ -1,0 +1,17 @@
+1 : crudOperation>  db.user.find()
+2 :crudOperation> db.user.findOne()
+3 :crudOperation> db.user.update({first_name:"Sidnee"},{$set:{age:35}})
+4 :crudOperation> db.user.update({first_name:"Meredeth",last_name:"Groveham"},{$set:{salary:55000}})
+5 :crudOperation> db.user.updateOne({first_name:"Nikolaus"},{$set:{last_name:"park"}})
+6 :crudOperation> db.user.updateMany({age:37},{$set:{salary:35000}})
+7 : crudOperation> db.user.updateMany({age:28},{$set:{last:"Jamme"}})
+8 :crudOperation> db.user.updateMany({first_name:"Kimbra"},{$set:{middle_name:"Marie"}})
+9 :crudOperation> db.user.find({age:30})
+10 :crudOperation> db.user.find({salary:{$gt:50000}})
+11 :crudOperation> db.user.find({$and:[{gender:"Female"},{age:79}]})
+12 :crudOperation> db.user.find({$and:[{gender:"Male"},{first_name:"George"}]})
+13 :crudOperation> db.user.find({salary:{$lte:50000}},{})
+
+
+
+

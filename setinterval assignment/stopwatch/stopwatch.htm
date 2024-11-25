@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>stop-watch</title>
+<style>
+  .image{
+    width: 50px;
+    height: 50px;
+    
+  }
+  button{
+    
+    margin-top: 10px;
+    border: none;
+    border-radius: 50px;
+    
+  }
+  button img{
+    border-radius: 50px;
+   
+    background-color:#FF5636 ;
+  }
+</style>
+</head>
+<body>
+<div id="timer" style="text-align: center; font-size: 30px">
+  <input type="number" name="" id="hours" min="0" value="0" />
+  <span>m</span>
+  <input type="number" name="" id="minutes" min="0" max="59" value="0" />
+  <span>s</span>
+  <input type="number" name="" id="seconds" min="0" max="59" value="0" />
+  <br />
+  <button onclick="startCount()"><img class ="image" src="./images/start.png" alt=""></button>
+  <button onclick="pauseCount()"><img class ="image" src="./images/stop.png" alt=""></button>
+  <button onclick="resetCount()"><img  class ="image" src="./images/reset.png" alt=""></button>
+  
+</div>
+<script>
+  let timeElapsed = 0;
+  let intervalId;
+
+  function startCount() {
+    intervalId = setInterval(function () {
+      timeElapsed++; // Increment timeElapsed
+      updateTime();
+    }, 1000);
+  }
+
+  function pauseCount() {
+    clearInterval(intervalId);
+  }
+
+  function resetCount() {
+    clearInterval(intervalId);
+    timeElapsed = 0; // Reset timeElapsed to 0
+    updateTime();
+  }
+
+  function updateTime() {
+    let hours = Math.floor(timeElapsed / 3600);
+    let minutes = Math.floor((timeElapsed % 3600) / 60);
+    let seconds = timeElapsed % 60;
+
+    document.getElementById("hours").value = hours;
+    document.getElementById("minutes").value = minutes;
+    document.getElementById("seconds").value = seconds;
+  }
+</script>
+</body>
+</html>

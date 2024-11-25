@@ -1,0 +1,14 @@
+#container{
+    border: 1px solid red;
+    margin: auto;
+    
+    
+
+}
+h1{
+    border: 1px solid green;
+    background-color: yellow;
+}
+button{
+    text-align: center;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic input form</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    
+      
+
+  
+
+const DynamicForm = () => {
+  const [hobbies, setHobbies] = React.useState([""]); // Initial state with one empty input
+  const [formData, setFormData] = React.useState({}); // To store form data on submit
+
+  // Function to handle adding a new input field
+  const addHobbyInput = () => {
+    setHobbies([...hobbies, ""]);
+  };
+
+  // Function to handle input changes
+  const handleInputChange = (index, event) => {
+    const newHobbies = [...hobbies];
+    newHobbies[index] = event.target.value;
+    setHobbies(newHobbies);
+  };
+
+  // Function to remove a specific input field
+  const removeHobbyInput = (index) => {
+    const newHobbies = hobbies.filter((_, i) => i !== index);
+    setHobbies(newHobbies);
+  };
+
+  // Function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFormData({ hobbies });
+    console.log({ hobbies }); // You can send this object to your backend or process it
+  };
+
+  return (
+    <div>
+      <h2>Dynamic Hobbies Form</h2>
+      <form onSubmit={handleSubmit}>
+        {hobbies.map((hobby, index) => (
+          <div key={index} style={{ marginBottom: "10px" }}>
+            <input
+              type="text"
+              value={hobby}
+              onChange={(event) => handleInputChange(index, event)}
+              placeholder={`Hobby ${index + 1}`}
+            />
+            <button
+              type="button"
+              onClick={() => removeHobbyInput(index)}
+              style={{ marginLeft: "10px" }}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+        <button type="button" onClick={addHobbyInput}>
+          Add Hobby
+        </button>
+        <button type="submit" style={{ marginLeft: "10px" }}>
+          Submit
+        </button>
+      </form>
+
+      {/* Displaying the submitted data */}
+      {formData.hobbies && (
+        <div>
+          <h3>Submitted Hobbies:</h3>
+          <ul>
+            {formData.hobbies.map((hobby, index) => (
+              <li key={index}>{hobby}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<DynamicForm />);
+  </script>
+</html>

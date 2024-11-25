@@ -1,0 +1,35 @@
+1 : how do you list all the database present in mongodb sever
+ans: show database
+
+2: what commend is used to create or switch to a new database in mongodb
+ans: use databaseName
+
+3: how can i create a collection named "student" in mongodb database?
+ans: db.createCollection("student")
+
+4: write the commend to insert a single document into the " student" collection with at least three fields:?
+ans: db .student.insertOne({name:"manish",age:"25",location:"Gorakhpur"})
+
+5: how would you insert multiple document into a "student" collection in sigle commend?
+ans: db.student.insertMany([{},{},{},{}])
+
+6: what commend is used to find or read all document in the student collection?
+ans: db.student.find()
+
+7:  how can you read and find fist document in student collection?
+ans: db.student.findOne()
+
+8: Describe the commend to update the course field of a specific student na "john Deo" to "Data science"
+ans: db.student.updateOne({name:"john"},{$set:{course:science}})
+
+9: what commend would you used to increase the age field oh all document in the " student" collection by 1
+ans: db.student.updateMany({},{$inc:{age:1}})
+
+10 : how can you delete a document with a specific  name from " student" collection
+ans: db.student.deleteMany({name:"name"})
+
+11: write the commend to delete all document from " student" collection where the name grater than or equal to a specific value?
+ans : db.student,deleteMany({$glt:{age:"20"}})
+
+12: how do you find document in the "student" collection where the course field  the " Data science"
+ans: db.student.find({course:"Data science"})

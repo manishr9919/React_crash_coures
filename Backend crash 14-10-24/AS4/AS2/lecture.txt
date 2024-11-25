@@ -1,0 +1,11 @@
+let ALL summery what i did
+
+1: install all dependency
+  express
+  nodemon
+  fs module 
+  filePathe
+
+2: after we need make function for reading data from db.json
+   and write data in db.json
+    

@@ -1,0 +1,21 @@
+agrregation_1>  db.orders.aggregate([{$match:{customer_id:1}}])
+agrregation_1> db.products.aggregate([{$match:{supplier_id:3}}])
+agrregation_1> db.orders.aggregate([{$match:{status:"shipped"}}])
+agrregation_1> db.payments.aggregate([ { $match: { paymentMethod: { $ne: "UPI" } } }, { $project: { amount: 1, paymentMethod: 1 } }] )
+agrregation_1> db.payments.aggregate([{$match:{amount:{$gt:100}}},{$project:{ paymentstatus:1}}])
+agrregation_1> db. order_details.aggregate([{$match:{price:{$gt:2000}}},{$project:{ shipper_id:1, price:1}}])
+agrregation_1> db.orders.aggregate([{$match:{status:"shipped"}},{$project:{ customer_id:1,_id:1}}])
+agrregation_1> db.products.aggregate([{$match:{ category_id:1}},{$project:{ _id:1}}])
+agrregation_1> db.products.aggregate([{$match:{price:{$gt:1500}}},{$project:{name:1,quantity:1}}])
+agrregation_1> db.shippers.aggregate([{$match:{phone:'1-800-742-5877'}},{$project:{name:1}}])
+agrregation_1> db.suppliers.aggregate([{$match:{name:"Sony"}},{$project:{city:1,phone:1}}])
+agrregation_1> db.suppliers.aggregate([{$match:{city:"ToKyo"}},{$project:{name:1}}])
+agrregation_1> db.payments.aggregate([{$match:{ paymentMethod:"UPI"}},{$project:{amount:1}}])
+agrregation_1> db.buyers.aggregate([{$match:{ email: { $regex: /hotmail\.com$/i }}},{$project:{city:"$address.city"}}])
+agrregation_1> db.orders.aggregate([{$match:{status:"shipped"}},{$sort:{order_date:-1}},{$limit:5},{$project:{ order_date: 1, status: 1, total_amount: 1, _id: 0 }}])
+agrregation_1> db.payments.aggregate([{$match:{ paymentstatus:"success"}},{$sort:{payment_date:1}},{$limit:3},{$project:{payment_date:1,amount:1, paymentMethod:1, _id: 0 }}])
+db.orders.aggregate([{$match:{status:"pending"}},{$sort:{order_date:-1}},{$project:{_id:0,customer_id:1,order_date:1,total:1}}])
+db.products.aggregate([ { $sort: { quantity: -1 } },  { $limit: 10 }, { $project: { _id: 0,name: 1, quantity: 1 } }])
+
+
+

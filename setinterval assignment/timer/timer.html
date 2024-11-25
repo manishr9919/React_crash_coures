@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <label for="">H</label>
+    <input type="number" name="" id="hours" max="59" min="0" value="0" />
+    <label for=""> M</label>
+    <input type="number" name="" id="minutes" max="59" min="0" value="0" />
+    <label for=""> S</label>
+    <input type="number" name="" id="seconds" max="59" min="0" value="0" />
+    <br /><br />
+    <button onclick="starCount()">START</button>
+    <button onclick="pauseCount()">PAUSE</button>
+    <button onclick="resetCount()">RESET</button>
+    <script>
+      let timeRemaning;
+      let intervalId;
+      function starCount() {
+        let hours = Number(document.getElementById("hours").value);
+        let minutes = Number(document.getElementById("minutes").value);
+        let seconds = Number(document.getElementById("seconds").value);
+        // convert in seconds
+        timeRemaning = hours * 3600 + minutes * 60 + seconds;
+
+        intervalId = setInterval(function () {
+          timeRemaning--;
+
+          console.log(timeRemaning);
+
+          // convert in to minutes
+
+          let hrs = Math.floor(hours / 3600);
+          let min = Math.floor((timeRemaning % 3600) / 60);
+          let sec = timeRemaning % 60;
+          // assign new value
+
+          document.getElementById("hours").value = hrs;
+          document.getElementById("minutes").value = min;
+          document.getElementById("seconds").value = sec;
+          //   condition
+
+          if (timeRemaning <= 0) {
+            clearInterval(intervalId);
+            intervalId = null;
+            alert("time is ended");
+          }
+        }, 1000);
+
+        // console.log(hours,minutes,seconds,timeRemaning,hrs,min,sec)
+      }
+      function pauseCount() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+      function resetCount() {
+        
+        pauseCount();
+        document.getElementById("hours").value = 0;
+        document.getElementById("minutes").value = 0;
+        document.getElementById("seconds").value = 0;
+        
+      }
+    </script>
+  </body>
+</html>

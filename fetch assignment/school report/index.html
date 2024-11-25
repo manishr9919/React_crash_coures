@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School report</title>
+  </head>
+  <body>
+    <script>
+      const school = {
+        name: "XYZ School",
+        establishYear: 1990,
+        departments: {
+          math: { teachers: 5, students: 150 },
+          science: { teachers: 4, students: 120 },
+          history: { teachers: 3, students: 100 },
+          english: { teachers: 4, students: 130 },
+        },
+        courses: ["math", "science", "history", "english"],
+        students: [
+          {
+            name: "Alice",
+            className: "Grade 5",
+            scores: { math: 95, science: 88, history: 85, english: 92 },
+          },
+          {
+            name: "Bob",
+            className: "Grade 4",
+            scores: { math: 80, science: 78, history: 92, english: 85 },
+          },
+          {
+            name: "Charlie",
+            className: "Grade 5",
+            scores: { math: 88, science: 90, history: 78, english: 88 },
+          },
+          {
+            name: "Diana",
+            className: "Grade 4",
+            scores: { math: 92, science: 85, history: 88, english: 90 },
+          },
+        ],
+      };
+
+      //   ===================== question no 10====================
+
+      // console.log(countCalculation(school))
+      //  Output: {
+      //   mathTeachersCount: 5,
+      //   historyTeachersCount: 3,
+      //   mathStudentsCount: 150,
+      //   historyStudentsCount: 100
+      // }
+
+      const countCalculation = ({
+        departments: {
+          math: { teachers: mathTeachersCount, students: mathStudentsCount },
+          history: {
+            teachers: historyTeachersCount,
+            students: historyStudentsCount,
+          },
+        },
+      }) => {
+        return {
+          mathTeachersCount,
+          historyTeachersCount,
+          mathStudentsCount,
+          historyStudentsCount,
+        };
+      };
+
+        console.log(countCalculation(school));
+
+      //  =========== Problem 11: findTopStudent [1]======
+
+      //     console.log( findTopStudent(school, 'math'))
+      // {
+      //   name: 'Alice',
+      //   className: 'Grade 5',
+      //   scores: { math: 95, science: 88, history: 85, english: 92 }
+      // }
+
+      const findTopStudent = (school, subject) => {
+       
+        let maxScore = 0;
+        let topStudent = null;
+
+        
+        for (const student of school.students) {
+          // Destructure the scores object to get the score for the specified course
+          //   console.log(student);
+          const { scores } = student;
+          const score = scores[subject];
+          // console.log(score)
+
+          // If the score for the current student is higher than the current maximum score, update the maximum score and the top student
+          if (maxScore < score) {
+            maxScore = score;
+            // console.log(maxScore);
+            topStudent = student;
+          }
+        }
+
+        // Return the top student
+        return topStudent;
+      };
+
+        console.log(findTopStudent(school, "math"));
+
+      //   Problem 12: addNewDept [1]
+
+      //   console.log(addNewDept(school, newDepartment));
+
+      // Output = {
+      //   name: 'XYZ School',
+      //   establishYear: 1990,
+      //   departments: {
+      //     math: { teachers: 5, students: 150 },
+      //     science: { teachers: 4, students: 120 },
+      //     history: { teachers: 3, students: 100 },
+      //     english: { teachers: 4, students: 130 },
+      //     art: { teachers: 2, students: 50 }
+      //   },
+      //   courses: [ 'math', 'science', 'history', 'english' ],
+      //   students: [
+      //     { name: 'Alice', className: 'Grade 5', scores: [Object] },
+      //     { name: 'Bob', className: 'Grade 4', scores: [Object] },
+      //     { name: 'Charlie', className: 'Grade 5', scores: [Object] },
+      //     { name: 'Diana', className: 'Grade 4', scores: [Object] }
+      //   ]
+      // }
+
+      const addNewDept = (school, newDepartment) => {
+        const { name, teachers, students } = newDepartment;
+
+        school.departments[name] = { teachers, students };
+
+        return school;
+      };
+
+      const newDepartment = { name: "Art", teachers: 2, students: 50 };
+      console.log(addNewDept(school, newDepartment));
+    </script>
+  </body>
+</html>

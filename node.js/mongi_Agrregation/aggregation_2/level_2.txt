@@ -1,0 +1,14 @@
+ db.orders.aggregate([{$group:{_id:"$total"}},{$sort:{_id:1}}])
+ db.payments.aggregate([{$sort:{payment_date:1}},{$limit:1},{$project:{paymentMethod:1}}])
+ db.buyerss.aggregate([{$skip:1},{$limit:2}])
+ db.order_details.aggregate([{$sort:{price:1}},{$limit:1}])
+ db.orders.aggregate([{$sort:{ordes_date:1}},{$limit:1}])
+ db.orders.aggregate([{$sort:{total:1}},{$limit:3}])
+ db.orders.aggregate([{$sort:{ship_date:-1}}])
+ db.orders.aggregate([{$group:{_id:null,total_revenue:{$sum:"$total"}}},{$project:{_id:0,total_revenue:1}}])
+ db.orders.aggregate([{$addFields: { shipping_date: { $dateFromString: { dateString: "$ship_date" } } } }, { $match: { shipping_date: { $lt: new Date("2022-05-26") } } }])
+ db.products.aggregate([{$group:{_id:"$category_id", maxPrice: { $max: "$price" }, products: { $push: { name: "$name", price: "$price" }}}},{$unwind: "$products"},{$match:{  $expr: { $eq: ["$products.price", "$maxPrice"]}}},{$project:{ _id: 0, category_id: "$_id", name: "$products.name", maxPrice: 1}}])
+ db.payments.aggregate([{$group:{_id:"$paymentMethod",count:{$sum:1}}},{$sort:{count:1}},{$limit:1},{$project:{_id:0,paymentMethod:"$_id",count:1}}])
+ db.orders.aggregate({$group:{_id:"$status",count:{$sum:"$_id"}}})
+ 
+        

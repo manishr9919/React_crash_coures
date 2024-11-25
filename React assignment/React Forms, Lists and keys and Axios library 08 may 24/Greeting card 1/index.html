@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreetingCard component</title>
+    <style>
+        .container{
+            border: 1px solid red;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            background-color: yellow;
+
+            gap: 20px
+            ;
+
+        }
+        .card{
+            border: 1px solid green;
+            margin: 10px;
+            text-align: center;
+            background-color: teal;
+            text-decoration: dotted;
+
+        }
+        h1{
+            text-align: center;
+            color: teal;
+        }
+        .nav{
+            background-color: #0057;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function GreetingCard({ greetings }) {
+      return (<>
+      <div className="nav"> <h1> Greeting card</h1></div>
+     
+      <div className="container">
+        
+        {greetings.map((greeting, i) => (
+          <div className="card" key={i}>
+            <p>{greeting.birthday}</p>
+            <p>{greeting.name}</p>
+          </div>
+        ))}
+      </div>
+      </>
+        
+        
+      );
+    }
+
+    const greetings = [
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+      { birthday: "Happy Birthday", name: "John Doe" },
+      { birthday: "Happy Birthday", name: "Manish Jain" },
+    ];
+
+    ReactDOM.render(<GreetingCard greetings={greetings} />, document.getElementById("root"));
+  </script>
+</html>

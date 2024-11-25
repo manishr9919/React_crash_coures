@@ -1,0 +1,59 @@
+1. What is a NoSQL Database, and explain the types of NoSQL databases?
+ANS: NoSQL database stand not stracture language its is very flexible according to SQL language,
+you can see its clear mening the data is not structured formate 
+
+
+2. What is the difference between SQL and NoSQL databases?
+ANS: SQL databases stand for  structured query language, and have a predefined schema.
+ They are best for complex queries and transactions. NoSQL databases are not structured, 
+ have dynamic schemas for unstructured data, 
+ and are designed for distributed data stores with large volumes of data.
+
+3. How to choose between MongoDB and MySQL based on your requirements?
+ANS: Choose MongoDB if you need a flexible schema design,
+ horizontal scalability, and high performance for large volumes of unstructured data.
+ Choose MySQL if you need ACID compliance, complex queries, and transactions in a structured schema.
+
+4. What are collections and documents in a MongoDB database?
+ANS: In MongoDB, a collection is a group of documents, similar to a table in relational databases.
+A document is a record in a collection, represented as a JSON-like object (BSON) with key-value pairs.
+
+5. What is BSON? What is the difference between BSON and JSON?
+ANS: BSON (Binary JSON) is a binary-encoded serialization of JSON-like documents. 
+BSON extends JSON with additional data types and is designed to be efficient in space and speed. 
+JSON is text-based and limited to a subset of data types.
+
+6. What are MongoDB Compass and MongoDB Shell used for?
+ANS: MongoDB Compass is a graphical user interface for MongoDB,
+allowing users to interact with their data visually.
+MongoDB Shell (mongosh) is a command-line tool used for interacting with MongoDB databases.
+
+
+7. How to create collections in MongoDB?
+ANS: Collections in MongoDB are created automatically when you insert a document into a collection that doesn't exist yet.
+You can also create a collection manually using the `createCollection` method.
+db.createCollection("name of collection")
+collection should not be "-" is should be camalcase 
+
+
+
+
+8. What is the difference between insertMany and insertOne?
+ANS: `insertOne` inserts a single document into a collection, while `insertMany` inserts multiple documents in one operation.
+
+9. What is the difference between deleteOne and deleteMany?
+ANS: `deleteOne` deletes the first document that matches the filter criteria, while `deleteMany` deletes all documents that match the filter criteria.
+
+10. How to read data in MongoDB? What is the difference between find and findOne?
+ANS: To read data in MongoDB, you use the `find` and `findOne` methods.
+`find` returns all documents that match the query criteria, while `findOne`
+ returns only the first document that matches the query criteria.
+
+11. What is $set in MongoDB?
+ANS: `$set` is an update operator in MongoDB used to update the value of a field in a document. 
+If the field does not exist, `$set` adds it.
+
+12. How to filter data using MongoDB?
+ANS: Data in MongoDB is filtered using query operators in the `find` method.
+For example, you can use `{ field: value }` to match documents where the field has the specified value,
+or use comparison operators like `$gt`, `$lt`, `$in`, etc., to filter data based on more complex criteria.

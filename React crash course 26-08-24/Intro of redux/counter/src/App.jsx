@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./redux/action";
 
@@ -13,7 +12,9 @@ function App() {
       <div>
         <button onClick={() => dispatch(increment())}>Increment</button>
         <button>{count}</button>
-        <button onClick={() => dispatch(decrement())}  disabled={count <= 0}  >Decrement</button>
+        <button onClick={() => dispatch(decrement())} disabled={count <= 0}>
+          Decrement
+        </button>
       </div>
     </>
   );

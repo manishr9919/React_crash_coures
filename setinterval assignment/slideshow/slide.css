@@ -1,0 +1,58 @@
+#container{
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: aquamarine;
+    text-align: center;
+}
+#container>.slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+#container>.slide>:nth-child(2){
+    width: 80%;
+}
+.slide>div>img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    
+}
+.slide>button{
+    width: 10%;
+    height: auto;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+.slide>button:hover{
+    background-color: rgba(0, 0, 0, 0.884);
+    padding: 9px 18px;
+}
+
+#container>button{
+    width: 13%;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+#container>button:hover{
+    background-color: rgba(0, 0, 0, 0.884);
+    padding: 9px 18px;
+}
+
+.status-button>button{
+padding: 5px;
+margin: 5px;
+border-radius: 50%;
+}
